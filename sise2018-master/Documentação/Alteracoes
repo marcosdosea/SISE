@@ -1,0 +1,23 @@
+Alterações no banco:
+
+1- Adicao da coluna ativo_evento na tb_evento, coluna essa que indica se o evento está ativo ou nao.
+2- Alteração na coluna tipo_usuario na tb_usuario, passando de ENUM('0','1','2') para ENUM('ouvinte', 'organizador', 'master' , 'rooter').
+3- Alterar id_evento para autoincrement.
+4- Alteração Enum de master para ADMIN.
+
+
+
+Alterações persistencia:
+
+1- Adicao do retorno do ultimo id inserido na tb_evento. Retornando o id recem cadastrado no banco para ser usado,
+na montagem do objeto adminEvento.
+2- Revisar Metodos persistenciaAdminEvento.
+
+
+
+Alterações gerenciadoras:
+
+1- Adiçao do metodo obterEventosResponsavel na GerenciadoraEventos para recuperar a quantidade de eventos que o id
+é administrador.
+2- Adição do metodo listarEventosResponsavel na gerenciadoraEventos para recuperar o nome e sigla dos eventos que
+o id é administrador e listar na tela de gerenciamento.

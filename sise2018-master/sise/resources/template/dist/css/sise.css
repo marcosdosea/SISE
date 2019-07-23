@@ -1,0 +1,84 @@
+.caixa-evento{
+    padding: 5px;
+    border-width: 1px 1px 1px 1px;
+    border-style: solid;
+    border-color: #ddd;
+}
+
+.mes-calendario {
+    display: block;
+    background: #fa565a;
+    font-size: 150%;
+    line-height: 75%;
+    font-weight: bold;
+    padding: 10% 0;
+    margin: 0% 0 0 0;
+    text-transform: uppercase;
+    color: #ffffff;
+    border-top: 1% solid #fa565a;
+}
+
+.dia-calendario {
+    font-weight: 300;
+    font-size: 350%;
+    line-height: 125%;
+}
+
+.caixa-calendario {
+    background: #ffffff;
+    color: #666666;
+    width: 15%;
+    height: 48px;
+    text-align: center;
+    font-size: 50%;
+    line-height: 30px;
+    font-weight: bold;
+    padding: 0;
+    float: left;
+    border-width: 1px 1px 1px 1px;
+    border-style: solid;
+    border-color: #ddd;
+}
+
+.caixa-local-evento {
+    background: #f8f8f8;
+    color: #666666;
+    font-family: 'Open Sans', sans-serif;
+    color: #50525f;
+    font-size: 80%;
+    font-weight: 400;
+    height: 48px;
+    padding: 5px 5px 5px 10px;
+    text-align: left;
+    border-width: 1px 1px 1px 0;
+    border-style: solid;
+    border-color: #ddd;
+    width: 79%;
+
+
+}
+
+.line {
+    overflow: hidden;
+    max-height: 15px;
+    line-height: 20px;
+    display: inline-block;
+    width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.info-evento {
+    padding-left: 15px;
+    padding-top: 15px;
+}
+
+.logo-img{
+    height: 90%;
+    text-align: center;
+
+}

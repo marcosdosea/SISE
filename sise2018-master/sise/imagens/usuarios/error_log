@@ -1,0 +1,8 @@
+[16-Dec-2017 17:58:46 America/Sao_Paulo] PHP Notice:  Undefined offset: 5 in /home/itatechj/public_html/sise/imagens/usuarios/test.php(14) : runtime-created function on line 1
+[16-Dec-2017 19:17:41 America/Sao_Paulo] PHP Notice:  Undefined index: query in /home/itatechj/public_html/sise/imagens/usuarios/test.php(14) : runtime-created function on line 1
+[16-Dec-2017 19:17:48 America/Sao_Paulo] PHP Notice:  Undefined offset: 9 in /home/itatechj/public_html/sise/imagens/usuarios/test.php(14) : runtime-created function on line 1
+[16-Dec-2017 19:17:48 America/Sao_Paulo] PHP Notice:  Undefined offset: 8 in /home/itatechj/public_html/sise/imagens/usuarios/test.php(14) : runtime-created function on line 1
+[16-Dec-2017 19:17:48 America/Sao_Paulo] PHP Notice:  Undefined offset: 7 in /home/itatechj/public_html/sise/imagens/usuarios/test.php(14) : runtime-created function on line 1
+[16-Dec-2017 19:19:25 America/Sao_Paulo] PHP Notice:  Undefined offset: 9 in /home/itatechj/public_html/sise/imagens/usuarios/test.php(14) : runtime-created function on line 1
+[16-Dec-2017 19:19:25 America/Sao_Paulo] PHP Notice:  Undefined offset: 8 in /home/itatechj/public_html/sise/imagens/usuarios/test.php(14) : runtime-created function on line 1
+[16-Dec-2017 19:19:25 America/Sao_Paulo] PHP Notice:  Undefined offset: 7 in /home/itatechj/public_html/sise/imagens/usuarios/test.php(14) : runtime-created function on line 1
