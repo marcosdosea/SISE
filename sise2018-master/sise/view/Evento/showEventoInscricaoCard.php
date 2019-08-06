@@ -158,7 +158,7 @@
                                 <?php
                                     require_once '..\inc\pagseguro.php';
                                 ?>
-                                <script type="text/javascript" src="https://stc.sandbox.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.lightbox.js"></script>
+                                <script type="text/javascript" src="https://stc.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.lightbox.js"></script>
                                 <input id="enviarC" class="btn btn-block btn-warning bt-sm pull-right" onclick="PagSeguroLightbox('<?php echo $xml->code?>')" style="display: none" value="Confirmar Inscrição">
                                 <!--<button id="enviarC" class="btn btn-block btn-warning bt-sm pull-right" onclick="PagSeguroLightbox('<?php echo $xml->code?>')" style="display: none">Confirmar Inscrição</button>-->
                                 <button id="enviarB" class="btn btn-block btn-warning bt-sm pull-right" style="display: none">Gerar Boleto</button>

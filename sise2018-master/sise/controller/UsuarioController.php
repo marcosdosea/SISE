@@ -34,8 +34,6 @@
     // Permite remover um usuario do sistema.
         case 'del':
             echo 'DELETAR USUARIO';
-
-
             break;
 
     // Permite cadastrar um usuario no sistema.
@@ -48,7 +46,7 @@
                     header('Location: login?mensagem=existe');
                 } else {
                     //$novo = new Usuario(null,$_POST['nome'], $_POST['cpf'], null, null, null, $_POST['email'], null, null, null , $_POST['sexo'] , criptografaSenha($_POST['senha1']) , null );
-                    $novo = new Usuario(null, $_POST['nome'], $_POST['cpf'], null, criptografaSenha($_POST['senha1']),null);
+                    $novo = new Usuario(null, $_POST['nome'], $_POST['cpf'], $_POST['email'], criptografaSenha($_POST['senha1']),null, null);
 
                     $gerenciadoraUsuario->adicionar($novo);
                     header('Location: login?mensagem=sucess');
@@ -264,7 +262,7 @@
                     if(is_null($usuario))
                       header("Location: home");
 
-                    if (isset($_POST['senha1']))
+                    if (isset($_POST['senha1']) && isset($_POST['senha2']) && $_POST['senha1']==$_POST['senha2'])
                     {
                       // Requires Exclusivos para essa condição
                        require_once '../gerenciador/GerenciadorRecuperarSenha.php';
@@ -277,8 +275,8 @@
                        // Senha recebida via POST
                        $senhaAlterada = ($_POST['senha1']);
 
-                      // Setando a nova senha do usuario
-                      $usuario->setSenhaUsuario(criptografaSenha($senhaAlterada));
+                       // Setando a nova senha do usuario
+                       $usuario->setSenhaUsuario(criptografaSenha($senhaAlterada));
 
                        // Gerenciadora na função Atualizar USUARIO.
                        $gerenciadoraUsuario->atualizar($usuario);
@@ -292,6 +290,9 @@
 
                        // Gerenciadora recebendo o Objeto criado com os valores setados acima
                        $gerenciadoraRecuperarSenha->atualizar($token);
+                    }
+                    else{
+                    	header("Location: usuario?action=alterarSenha&idAlterar=2&msg=erro");
                     }
             }
         break;

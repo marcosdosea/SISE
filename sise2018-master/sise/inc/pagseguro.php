@@ -33,7 +33,7 @@ $data['shippingAddressCity'] = 'Sao Paulo';
 $data['shippingAddressState'] = 'SP';
 $data['shippingAddressCountry'] = 'BRA';*/
 
-$data['redirectURL'] = 'http://localhost/sise2018/sise/home';
+$data['redirectURL'] = 'http://localhost/sise';
 
 $data = http_build_query($data);
 

@@ -45,6 +45,13 @@
                                             <input type="password" name="senha2" id="confirm_password" class="form-control" placeholder="Repita a nova senha" required>
                                         </div>
                                     </div>
+									<?php if(isset($_GET["msg"]) && $_GET["msg"]=="erro"){ ?>
+                                        <div class="col-md-5">
+                                            <div class="callout callout-danger">
+                                                <h4>Senha Não Correspondem!</h4>
+                                            </div>
+                                        </div>
+                                    <?php } ?>
                                 </div>
                             </div>
                             </div>
@@ -52,7 +59,7 @@
                                 <button type="submit" class="btn btn-primary" name="editar">Salvar Dados</button>
                             </div>
                         </form>
-                        <?php if (isset($_GET["msg"]) && $_GET["msg"]="sucess") { ?>
+                        <?php if (isset($_GET["msg"]) && $_GET["msg"]=="sucess") { ?>
                             <div class="col-md-12">
                                 <div class="callout callout-success">
                                     <h4>Dados Alterados com sucesso!</h4>
