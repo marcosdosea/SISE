@@ -37,7 +37,7 @@
                                 </div>
                             </a>
                             <?php } else { ?>
-                            <a href="evento?action=cadastrar">
+                            <a href="evento?action=showCadastrar">
                                 <!-- Box que delimita o botao -->
                                 <div class="col-lg-4 col-xs-6">
                                     <!-- Botao em si -->
