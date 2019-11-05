@@ -94,7 +94,6 @@
                                 <h4 class="modal-title">Cadastre-se</h4>
                             </div>
                             <div class="modal-body">
-
                                     <div class="form-group has-feedback">
                                         <input type="text" name="nome" class="form-control" placeholder="Nome Completo" required>
                                         <span class="glyphicon glyphicon-user form-control-feedback"></span>
@@ -119,7 +118,6 @@
                                 <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancelar</button>
                                 <button type="submit" class="btn btn-primary">Cadastar</button>
                             </div>
-
                         </form>
                     </div>
                 </div>
@@ -137,29 +135,25 @@
                                 <h4 class="modal-title">Recuperar Senha</h4>
                             </div>
                             <div class="modal-body">
-                              <!--
                                 <div>
-                                    <h5>Em desenvolvimento! Para alterar sua senha por favor entre em contato com projetos@itatechjr.com.br</h5>
+                                    <h5>Em desenvolvimento! <br> 
+                                    Para alterar sua senha por favor entre em contato com projetos@itatechjr.com.br</h5>
                                 </div>
-                              -->
                                 <div class="form-group has-feedback">
-                                    <input type="text" name="cpf" id="cpf" class="form-control" placeholder="CPF" required>
-                                    <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                                    <!--<input type="text" name="cpf" id="cpf" class="form-control" placeholder="CPF" required>
+                                    <span class="glyphicon glyphicon-user form-control-feedback"></span>-->
                                 </div>
-
                             </div>
-
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancelar</button>
-                                <button type="submit" class="btn btn-primary">Recuperar</button>
+                                <!--<button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancelar</button>
+                                <button type="submit" class="btn btn-primary">Recuperar</button>-->
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Ok</button>
                             </div>
-
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
 </div>
 

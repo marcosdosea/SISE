@@ -9,8 +9,8 @@
                     <div class="box box-widget widget-user">
 
                         <div class="widget-user-header bg-black" style="background: url('imagens/eventos/<?php echo $evento->getUrlImagem(); ?>') center center;">
-                            <h3 class="widget-user-username"><?php echo $evento->getNomeEvento(); ?></h3>
-                            <h3 class="widget-user-username"><?php echo "R$ ".$evento->getValorEvento(); ?></h3>
+                            <h3 class="widget-user-username" style="color: black"><?php echo $evento->getNomeEvento(); ?></h3>
+                            <h3 class="widget-user-username" style="color: black"><?php echo "R$ ".$evento->getValorEvento(); ?></h3>
                         </div>
                         <div class="box-body"  style="">
                             <div class="row">

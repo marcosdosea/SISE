@@ -14,7 +14,7 @@
     //Atualiza o nível de permissão do usuário
     require_once '../gerenciador/GerenciadorUsuario.php';
     $gerenciadoraUsuario = new GerenciadorUsuario();
-    if (($usuario = $gerenciadoraUsuario->obter($_SESSION['codigo'])) != null)
+    if (($usuario = $gerenciadoraUsuario->obterById($_SESSION['codigo'])) != null)
         $_SESSION['tipoUsuario'] = $usuario->getTipoUsuario();
 
     function getTipoUsuarioSessao(){

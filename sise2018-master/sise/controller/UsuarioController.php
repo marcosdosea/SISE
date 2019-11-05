@@ -2,6 +2,8 @@
     /**
      * Autor: Felipe
      * Date: 10/03/2017
+     * Autor: Joan Vitor
+     * Date: 04/11/2019
      */
 
     session_start();
@@ -81,8 +83,8 @@
                 $gerenciadoraEndereco = new GerenciadorEndereco();
 
                 // Obtendo o usuario de acordo com o codigo da sessão
-                $usuario = $gerenciadoraUsuario->obter($_SESSION['codigo']);
-                $imgUsuario = $usuario->getImagemUsuario();
+                $usuario = $gerenciadoraUsuario->obterById($_SESSION['codigo']);
+                //$imgUsuario = $usuario->getImagemUsuario();
 
                 // Carregando o Objeto com as informações atualizadas e a imagem
                 $userEdit = new Usuario(
@@ -262,7 +264,7 @@
                     if(is_null($usuario))
                       header("Location: home");
 
-                    if (isset($_POST['senha1']) && isset($_POST['senha2']) && $_POST['senha1']==$_POST['senha2'])
+                    if (isset($_POST['senha1']) && isset($_POST['senha2']) && $_POST['senha1'] == $_POST['senha2'])
                     {
                       // Requires Exclusivos para essa condição
                        require_once '../gerenciador/GerenciadorRecuperarSenha.php';
@@ -280,7 +282,7 @@
 
                        // Gerenciadora na função Atualizar USUARIO.
                        $gerenciadoraUsuario->atualizar($usuario);
-                       header('Location: login?msg=sucessEditSenha');
+                       header('Location: usuario?action=alterarSenha&idAlterar=2&msg=sucess');
 
                        // Mudando Token para Utilizado, apos alteração da Senha
                        $token = $gerenciadoraRecuperarSenha->obterValidoByIdUser($usuario->getIdUsuario());

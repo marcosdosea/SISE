@@ -52,6 +52,14 @@
                                             </div>
                                         </div>
                                     <?php } ?>
+                                    <?php if (isset($_GET["msg"]) && $_GET["msg"]=="sucess") { ?>
+                                        <div class="col-md-12">
+                                            <div class="callout callout-success">
+                                                <h4>Dados Alterados com sucesso!</h4>
+                                            </div>
+
+                                        </div>
+                                    <?php } ?>
                                 </div>
                             </div>
                             </div>
@@ -59,18 +67,9 @@
                                 <button type="submit" class="btn btn-primary" name="editar">Salvar Dados</button>
                             </div>
                         </form>
-                        <?php if (isset($_GET["msg"]) && $_GET["msg"]=="sucess") { ?>
-                            <div class="col-md-12">
-                                <div class="callout callout-success">
-                                    <h4>Dados Alterados com sucesso!</h4>
-                                </div>
-
-                            </div>
-                        <?php } ?>
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
 </div>

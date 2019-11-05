@@ -19,7 +19,6 @@
         <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
             <span class="sr-only">Toggle navigation</span>
         </a>
-
         <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
                 <li class="dropdown user user-menu">
@@ -30,15 +29,11 @@
                 </li>
             </ul>
         </div>
-
     </nav>
-
 </header>
-
 
 <aside class="main-sidebar">
     <section class="sidebar">
-
         <div class="user-panel hidden-xs">
             <div class="pull-left image">
                 <img src="<?php echo 'imagens/usuarios/'.$_SESSION['foto']; ?>" class="img-circle" alt="Imagem" />
@@ -67,14 +62,13 @@
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
                 </a>
-
                 <ul class="treeview-menu">
                     <li><a href="usuario?action=show_edit"><i class="glyphicon glyphicon-align-left"></i> Alterar dados</a></li>
                     <li><a href="usuario?action=alterarSenha&idAlterar=2"><i class="glyphicon glyphicon-wrench"></i> Alterar senha</a></li>
                 </ul>
             </li>
 
-            <?php if (temPermissao(1)) { ?>
+            <?php if (temPermissao(1)) { ?> <!-- ORGANIZADOR -->
 
               <li class="treeview">
                 <a href="#">
@@ -84,7 +78,6 @@
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
                 </a>
-
                 <ul class="treeview-menu">
                   <li><a href="evento?action=gerenciar"><i class="glyphicon glyphicon-triangle-right"></i>Eventos</a></li>
                 </ul>
@@ -92,7 +85,7 @@
 
             <?php } ?>
 
-            <?php if (temPermissao(2)) { ?>
+            <?php if (temPermissao(2)) { ?> <!-- ADMIN -->
 
               <li class="treeview">
                 <a href="#">
@@ -102,7 +95,6 @@
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
                 </a>
-
                 <ul class="treeview-menu">
                   <li><a href="#"><i class="glyphicon glyphicon-triangle-right"></i> OP ADM 1</a></li>
                   <li><a href="#"><i class="glyphicon glyphicon-triangle-right"></i> OP ADM 2</a></li>

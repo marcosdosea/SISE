@@ -12,6 +12,8 @@
      * Autor: Gabriel Santana
      * Date: 07/08/2017
      * Revisao do obterById
+     * Autor: Joan Vitor
+     * Date: 04/11/2019
      */
     require_once 'DbConnection.php';
     require_once 'DaoGenerico.php';
@@ -151,7 +153,7 @@
                             email_usuario as emailUsuario,
                             senha_usuario as senhaUsuario,
                             id_asaas_usuario as idAsaasUsuario,
-                            tipo_usuario as tipoUsuario,
+                            tipo_usuario as tipoUsuario
                         FROM tb_usuario
                         WHERE id_usuario = :idUsuario;';
 

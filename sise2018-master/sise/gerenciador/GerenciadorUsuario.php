@@ -3,6 +3,8 @@
      * Autor: Kaic
      * Date: 10/03/2017
      * Time: 12:02
+     * Autor: Joan Vitor
+     * Date: 04/11/2019
      */
     require_once '../model/Usuario.php';
     require_once '../persistencia/PersistenciaUsuario.php';
@@ -35,7 +37,7 @@
             return $this->persistencia->obterTodos();
         }
 
-        function obter($idUsuario){
+        function obterById($idUsuario){
             return $this->persistencia->obterById($idUsuario);
         }
 

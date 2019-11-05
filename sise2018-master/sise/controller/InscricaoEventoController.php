@@ -70,7 +70,7 @@ switch($action){
             //TESTAR SE O ID REALMENTE É O DO PAGAMENTO
             $idPagamento = $gerenciadoraPagamento->adicionar($pagamento);
 
-            $usuario = $gerenciadoraUsuario->obter($_SESSION['codigo']);
+            $usuario = $gerenciadoraUsuario->obterById($_SESSION['codigo']);
 
             if($tipoPagamento == 'C'){
 
@@ -83,10 +83,10 @@ switch($action){
                     $dadosCliente['email'] = $usuario->getEmailUsuario();
                     $dadosCliente['phone'] = "";
                     $dadosCliente['mobilePhone'] = "";
-                    if ($usuario->getTel1Usuario() != null) {
+                    /*if ($usuario->getTel1Usuario() != null) {
                         $dadosCliente['phone'] = $usuario->getTel1Usuario();
                         $dadosCliente['mobilePhone'] = $usuario->getTel1Usuario();
-                    }
+                    }*/
                     $dadosCliente['cpfCnpj'] = $usuario->getCpfUsuario();
 
                     $userAsaas = inserirCliente($dadosCliente);
