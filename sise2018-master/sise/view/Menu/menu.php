@@ -23,7 +23,6 @@
             <ul class="nav navbar-nav">
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <img src="<?php echo 'imagens/usuarios/'.$_SESSION['foto']; ?>" class="user-image" alt="User Image">
                         <span style="font-size: 22px;"><?php echo $_SESSION['nome']; ?></span>
                     </a>
                 </li>
@@ -35,16 +34,12 @@
 <aside class="main-sidebar">
     <section class="sidebar">
         <div class="user-panel hidden-xs">
-            <div class="pull-left image">
-                <img src="<?php echo 'imagens/usuarios/'.$_SESSION['foto']; ?>" class="img-circle" alt="Imagem" />
-            </div>
-            <div class="pull-left info">
-                <p>
-                    <?php echo utf8_encode($_SESSION['nome']); ?>
+            <div class="pull-left">
+                <p style="margin-bottom:20px;color:#fff">
+                    <?php echo $_SESSION['nome']; ?>
                 </p>
             </div>
         </div>
-
         <ul class="sidebar-menu">
             <li class="header">MENU</li>
             <li class="treeview">
