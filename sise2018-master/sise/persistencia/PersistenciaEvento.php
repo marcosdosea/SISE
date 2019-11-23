@@ -475,7 +475,7 @@
                         $linha['dataFimEvento'], $linha['idEndereco'], $linha['idEventoPai'], $linha['urlImagem'], $linha['valorEvento'], $linha['qntdParcelasPermitidas'],
                         $linha['partMinEvento'], $linha['ativoEvento']);
                 }
-                return 0;
+                return $resultado;
             }
 
             return $statement;

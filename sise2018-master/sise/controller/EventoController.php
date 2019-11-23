@@ -235,7 +235,7 @@ switch ($action) {
 
         $eventos = $gerenciadoraEvento->listarEventosResponsavel($_SESSION['codigo']);
 
-        if($eventos==null || !$eventos)
+        if($eventos == null || !$eventos)
             $qntdEventos = 0;
         else
             $qntdEventos = count($eventos);
