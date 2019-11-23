@@ -234,7 +234,11 @@ switch ($action) {
         $gerenciadoraEvento = new GerenciadorEvento();
 
         $eventos = $gerenciadoraEvento->listarEventosResponsavel($_SESSION['codigo']);
-        $qntdEventos = sizeof($eventos);
+
+        if($eventos==null || !$eventos)
+            $qntdEventos = 0;
+        else
+            $qntdEventos = count($eventos);
 
         require_once '../view/InicioDaPagina/inicioDaPagina.php';
         require_once '../controller/MenuController.php';

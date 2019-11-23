@@ -468,16 +468,17 @@
             $statement = $Conexao->query($SQL);
             $statement = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-            if($statement != false && !empty($statement))
+            if($statement != false && !empty($statement)) {
                 foreach ($statement as $linha) {
                     $resultado[] = new Evento($linha['idEvento'], utf8_encode($linha['nomeEvento']), $linha['siglaEvento'], utf8_encode($linha['descricaoEvento']),
                         $linha['inicioInscricoesEvento'], $linha['fimInscricoesEvento'], $linha['dataInicioEvento'],
                         $linha['dataFimEvento'], $linha['idEndereco'], $linha['idEventoPai'], $linha['urlImagem'], $linha['valorEvento'], $linha['qntdParcelasPermitidas'],
                         $linha['partMinEvento'], $linha['ativoEvento']);
                 }
+                return 0;
+            }
 
-                return $resultado;
-
+            return $statement;
         }
     }
 ?>
