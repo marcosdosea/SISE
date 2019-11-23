@@ -165,31 +165,59 @@
             return $resultado;
         }
 
-        function obterInscritosNoEvento($idEvento){
-            // Obtém a conexão
-            $Conexao = DbConnection::retornaConexao();
+        function obterInscritosNoEvento($idEvento) {
+            // Obter conexao
+            $conexao = DbConnection::retornaConexao();
 
-            // Prepara a query
-            $SQL = 'SELECT u.id_usuario,u.nome_usuario, u.cpf_usuario,
-                      u.rg_usuario,u.empresa_usuario,u.federada_usuario,
-                      u.email_usuario,u.tel1_usuario,u.tel2_usuario,u.id_federacao,
-                      u.sexo_usuario,u.senha_usuario,u.id_asaas_usuario 
-                        from tb_inscricao_evento i inner join tb_usuario u on (i.tb_usuario_id_usuario = u.id_usuario) where i.tb_evento_id_evento = :idEvento 
-                        ';
+            // Preparar query
+            $sql = 'SELECT 
+                        *
+                    FROM 
+                        tb_inscricao_evento 
+                            INNER JOIN 
+                        tb_usuario 
+                            ON (tb_usuario_id_usuario = id_usuario) 
+                        WHERE 
+                            tb_evento_id_evento = :idEvento';
 
             // Executa a query e cria o array de objetos TipoUnidade
-            $statement = $Conexao->prepare($SQL);
+            $statement = $conexao->prepare($sql);
             $statement->bindValue(':idEvento', $idEvento, PDO::PARAM_INT);
             $statement->execute();
             $statement = $statement->fetchAll(PDO::FETCH_ASSOC);
 
             $resultado = null;
-            if ($statement != false && !empty($statement))
-
+            if(!empty($statement))
                 foreach ($statement as $linha)
-                    $resultado[] = new Usuario($linha['id_usuario'], $linha['nome_usuario'], $linha['cpf_usuario'], $linha['rg_usuario'], $linha['empresa'], $linha['federada_usuario'], $linha['cpf_usuario'], $linha['email_usuario'], $linha['tel1_usuario'], $linha['tel2_usuario'], $linha['id_federacao'], $linha['sexo_usuario'],$linha['senha_usuario'], $linha['id_asaas_usuario']);
-
+                    $resultado[] = new Usuario($linha['id_usuario'], $linha['nome_usuario'], $linha['cpf_usuario'], $linha['email_usuario']);
+            
             return $resultado;
         }
+
+        // function obterInscritosNoEvento($idEvento){
+        //     // Obtém a conexão
+        //     $Conexao = DbConnection::retornaConexao();
+
+        //     // Prepara a query
+        //     $SQL = 'SELECT u.id_usuario,u.nome_usuario, u.cpf_usuario,
+        //               u.rg_usuario,u.empresa_usuario,u.federada_usuario,
+        //               u.email_usuario,u.tel1_usuario,u.tel2_usuario,u.id_federacao,
+        //               u.sexo_usuario,u.senha_usuario,u.id_asaas_usuario 
+        //                 from tb_inscricao_evento inner join tb_usuario u on (i.tb_usuario_id_usuario = u.id_usuario) where i.tb_evento_id_evento = :idEvento';
+
+        //     // Executa a query e cria o array de objetos TipoUnidade
+        //     $statement = $Conexao->prepare($SQL);
+        //     $statement->bindValue(':idEvento', $idEvento, PDO::PARAM_INT);
+        //     $statement->execute();
+        //     $statement = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+        //     $resultado = null;
+        //     if ($statement != false && !empty($statement))
+
+        //         foreach ($statement as $linha)
+        //             $resultado[] = new Usuario($linha['id_usuario'], $linha['nome_usuario'], $linha['cpf_usuario'], $linha['rg_usuario'], $linha['empresa'], $linha['federada_usuario'], $linha['cpf_usuario'], $linha['email_usuario'], $linha['tel1_usuario'], $linha['tel2_usuario'], $linha['id_federacao'], $linha['sexo_usuario'],$linha['senha_usuario'], $linha['id_asaas_usuario']);
+
+        //     return $resultado;
+        // }
     }
 ?>

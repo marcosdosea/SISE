@@ -96,7 +96,7 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                  <li><a href="#"><i class="glyphicon glyphicon-triangle-right"></i> OP ADM 1</a></li>
+                  <li><a href="frequencia?action=index"><i class="glyphicon glyphicon-triangle-right"></i> Frequência</a></li>
                   <li><a href="#"><i class="glyphicon glyphicon-triangle-right"></i> OP ADM 2</a></li>
                 </ul>
               </li>

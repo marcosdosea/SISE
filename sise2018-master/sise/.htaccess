@@ -12,6 +12,8 @@
     RewriteRule ^relatorio/?$ controller/RelatorioController.php [NC]
     RewriteRule ^recupSenha/?$ controller/RecuperarSenhaController.php [NC]
 
+	RewriteRule ^frequencia/?$ controller/FrequenciaController.php [NC]
+
 	RewriteRule ^adm/?$ adm/controller/AdmController.php [NC]
 	RewriteRule ^adm/gerenciar-inscritos/?$ adm/controller/InscritosNoEventoController.php [NC]
 </IfModule>
