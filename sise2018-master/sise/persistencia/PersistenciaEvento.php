@@ -80,7 +80,6 @@
 
             return $ultimoID = $Conexao->lastInsertId();
         }
-
         function atualizar($Objeto)
         {
             // Obtém a conexão
@@ -196,7 +195,7 @@
                             data_fim_evento as dataFimEvento,
                             id_endereco as idEndereco,
                             id_evento_pai as idEventoPai,
-                            url_imagem_evento as urlImagem,
+                            url_imagem_evento as imagemEvento,
                             valor_evento as valorEvento,
                             qntd_parcelas_permitida_evento as qntdParcelasPermitidas,
                             part_min_evento as partMinEvento,
@@ -214,7 +213,7 @@
 
                     $resultado[] = new Evento($linha['idEvento'], utf8_encode($linha['nomeEvento']), $linha['siglaEvento'], utf8_encode($linha['descricaoEvento']),
                         $linha['inicioInscricoesEvento'], $linha['fimInscricoesEvento'], $linha['dataInicioEvento'],
-                        $linha['dataFimEvento'], $linha['idEndereco'], $linha['idEventoPai'], $linha['urlImagem'], $linha['valorEvento'], $linha['qntdParcelasPermitidas'],
+                        $linha['dataFimEvento'], $linha['idEndereco'], $linha['idEventoPai'], $linha['imagemEvento'], $linha['valorEvento'], $linha['qntdParcelasPermitidas'],
                         $linha['partMinEvento'], $linha['ativoEvento']);
                 }
             return $resultado;
@@ -455,7 +454,7 @@
                             data_fim_evento as dataFimEvento,
                             id_endereco as idEndereco,
                             id_evento_pai as idEventoPai,
-                            url_imagem_evento as urlImagem,
+                            url_imagem_evento as imagemEvento,
                             valor_evento as valorEvento,
                             qntd_parcelas_permitida_evento as qntdParcelasPermitidas,
                             part_min_evento as partMinEvento,
@@ -472,7 +471,7 @@
                 foreach ($statement as $linha) {
                     $resultado[] = new Evento($linha['idEvento'], utf8_encode($linha['nomeEvento']), $linha['siglaEvento'], utf8_encode($linha['descricaoEvento']),
                         $linha['inicioInscricoesEvento'], $linha['fimInscricoesEvento'], $linha['dataInicioEvento'],
-                        $linha['dataFimEvento'], $linha['idEndereco'], $linha['idEventoPai'], $linha['urlImagem'], $linha['valorEvento'], $linha['qntdParcelasPermitidas'],
+                        $linha['dataFimEvento'], $linha['idEndereco'], $linha['idEventoPai'], $linha['imagemEvento'], $linha['valorEvento'], $linha['qntdParcelasPermitidas'],
                         $linha['partMinEvento'], $linha['ativoEvento']);
                 }
                 return $resultado;
@@ -480,5 +479,7 @@
 
             return $statement;
         }
+
+
     }
 ?>

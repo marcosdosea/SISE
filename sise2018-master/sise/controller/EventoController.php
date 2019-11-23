@@ -198,6 +198,7 @@ switch ($action) {
     case 'cadastrar':
 
         validaTipoUsuario(ADMIN);
+        define('TAMANHO_MAXIMO', (2 * 1024 * 1024));
 
         if (isset($_POST['cadEvento'])) {
             $gerenciadoraUsuario = new GerenciadorUsuario();
@@ -206,22 +207,29 @@ switch ($action) {
             $gerenciadoraAdminEvento = new GerenciadorAdminEvento();
 
             // Pega a data atual do servidor.
-            date_default_timezone_get('America/Sao_Paulo');
-            $horaAtualServidor = date('H:i:s.v');
+            date_default_timezone_set('America/Bahia');
+            $horaAtualServidor = date('H:i:s');
+
+            $urlImagem="";
+            if(isset($_FILES['imagem'])) {
+                $extensao = strtolower(substr($_FILES['imagem']['name'], -4)); //Pegando extensão do arquivo
+                $nomeImagem = $_POST['nome'].$extensao; //Definindo um novo nome para o arquivo
+                $diretorio = '../imagens/eventos/'; //Diretório para uploads
+                $urlImagem = $diretorio.$nomeImagem;
+                move_uploaded_file($_FILES['imagem']['tmp_name'], $urlImagem); //Fazer upload do arquivo
+            }
+            else
+                $urlImagem=null;
 
             $dataIniInsc = $_POST['dataInicioInsc'] . " " . $horaAtualServidor;
             $dataFimInsc = $_POST['dataFimInsc'] . " " . $horaAtualServidor;
             $dataIniEven = $_POST['dataInicio'] . " " . $horaAtualServidor;
             $dataFimEven = $_POST['dataFim'] . " " . $horaAtualServidor;
-
             $novoEvento = new Evento(null, $_POST['nome'], $_POST['sigla'], $_POST['descricao'],
                 $dataIniInsc, $dataFimInsc, $dataIniEven, $dataFimEven,
-                null, null, null, $_POST['valor'], $_POST['numParcelas'],
-                $_POST['partMin'], 's');
-
+                null, null,  $urlImagem, $_POST['valor'], $_POST['numParcelas'], $_POST['partMin'], 's');
             // Retorna o ID do ultimo evento inserido para ser usado na montagem do Objeto AdminEvento
             $gerenciadoraEvento->adicionar($novoEvento,$_SESSION['codigo']);
-
             header('Location: evento?action=gerenciar&mensagem=sucess');
         }
     break;

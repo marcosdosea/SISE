@@ -15,7 +15,7 @@
                                         <div class="form-group">
                                             <label for="">Nome do Evento*</label>
                                             <input type="text" name="nome" value="" class="form-control"
-                                                   placeholder="Digite o nome do Evento" required>
+                                                   placeholder="Digite o nome do Evento" >
                                         </div>
                                     </div>
                                     <div class='col-md-2'>
@@ -30,6 +30,8 @@
                                         <div class="form-group">
                                             <label for="">Capa do Evento*</label>
                                             <input type="file" name="imagem">
+
+
                                         </div>
                                     </div>
                                 </div>
@@ -38,7 +40,7 @@
                                         <div class="form-group">
                                             <label for="">Descrição do evento*</label>
                                             <textarea rows="3" name="descricao" class="form-control"
-                                                      placeholder="Descrição sobre o evento" required></textarea>
+                                                      placeholder="Descrição sobre o evento" ></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -51,7 +53,7 @@
                                                     <i class="fa fa-calendar"></i>
                                                 </div>
                                                 <input type="date" name="dataInicio" class="form-control" id="dateIncio"
-                                                       data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="" required>
+                                                       data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="" >
                                             </div>
                                         </div>
                                     </div>
@@ -63,7 +65,7 @@
                                                     <i class="fa fa-calendar"></i>
                                                 </div>
                                                 <input type="date" name="dataFim" class="form-control"
-                                                       data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="" required>
+                                                       data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="" >
                                             </div>
                                         </div>
                                     </div>
@@ -78,7 +80,7 @@
                                                 </div>
                                                 <input type="date" name="dataInicioInsc" class="form-control"
                                                        id="dateInIncricoes" data-inputmask="'alias': 'dd/mm/yyyy'"
-                                                       data-mask="" required>
+                                                       data-mask="" >
                                             </div>
                                         </div>
                                     </div>
@@ -91,7 +93,7 @@
                                                 </div>
                                                 <input type="date" name="dataFimInsc" class="form-control"
                                                        id="dateFimIncricoes" data-inputmask="'alias': 'dd/mm/yyyy'"
-                                                       data-mask="" required>
+                                                       data-mask="" >
                                             </div>
                                         </div>
                                     </div>
@@ -178,7 +180,7 @@
                                             <label for="">Valor*</label>
                                             <div class="input-group">
                                                 <span class="input-group-addon">R$</span>
-                                                <input type="text" name="valor" class="form-control" required>
+                                                <input type="text" name="valor" class="form-control" >
                                             </div>
                                         </div>
                                     </div>
@@ -199,7 +201,7 @@
                                             <label for="">Participação Minima*</label>
                                             <div class="input-group">
                                                 <span class="input-group-addon">%</span>
-                                                <input type="text" name="partMin" class="form-control" required>
+                                                <input type="text" name="partMin" class="form-control" >
                                             </div>
                                         </div>
                                     </div>
