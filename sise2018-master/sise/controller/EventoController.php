@@ -170,9 +170,12 @@ switch ($action) {
         require_once '../controller/MenuController.php';
         $inscricoes = $gerenciadoraInscricaoEvento->obterTodosByIdUsuario($_SESSION['codigo']);
         $eventosInscritos = null;
-        for ($i = 0; $i < sizeOf($inscricoes); $i++) {
-            $eventosInscritos[$i] = $gerenciadoraEventos->obter($inscricoes[$i]->getIdEvento());
-        }
+
+//        foreach($inscricao as $key => $inscricoes){
+//            $eventosInscritos[] = $gerenciadoraEventos->obter($inscricao->getIdEvento());
+//        }
+        echo"<pre>";
+        var_dump($inscricoes);
 
         if (!isset($eventosInscritos)) {
             require_once '../view/Evento/showSemEventoInscrito.php';
