@@ -217,7 +217,7 @@ switch ($action) {
             if(isset($_FILES['imagem'])) {
                 $extensao = strtolower(substr($_FILES['imagem']['name'], -4)); //Pegando extensão do arquivo
                 $nomeImagem = $_POST['nome'].$extensao; //Definindo um novo nome para o arquivo
-                $diretorio = '../imagens/eventos/'; //Diretório para uploads
+                $diretorio = 'imagens/eventos/'; //Diretório para uploads
                 $urlImagem = $diretorio.$nomeImagem;
                 move_uploaded_file($_FILES['imagem']['tmp_name'], $urlImagem); //Fazer upload do arquivo
             }

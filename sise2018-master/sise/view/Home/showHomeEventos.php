@@ -13,7 +13,7 @@
                         <div class="col-md-4">
                             <div class="box box-widget widget-user caixa-evento">
                                 <img class='img-responsive'
-                                     src='imagens/eventos/<?php echo $eventosAbertos[$i - 1]->getUrlImagem(); ?>'>
+                                     src='<?php echo $eventosAbertos[$i - 1]->getUrlImagem(); ?>'>
                                 <h1 style="font-size: 18px; margin: 10px 0px 0px 5px; "
                                     class="uppercase"><?php echo $eventosAbertos[$i - 1]->getNomeEvento(); ?></h1>
                                 <div class="row info-evento">
