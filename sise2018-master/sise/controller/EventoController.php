@@ -219,7 +219,7 @@ switch ($action) {
                 $nomeImagem = $_POST['nome'].$extensao; //Definindo um novo nome para o arquivo
                 $diretorio = 'imagens/eventos/'; //Diretório para uploads
                 $urlImagem = $diretorio.$nomeImagem;
-                move_uploaded_file($_FILES['imagem']['tmp_name'], $urlImagem); //Fazer upload do arquivo
+                move_uploaded_file($_FILES['imagem']['tmp_name'], '../'.$urlImagem); //Fazer upload do arquivo
             }
             else
                 $urlImagem=null;
