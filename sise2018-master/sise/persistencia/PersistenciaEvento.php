@@ -41,7 +41,9 @@
                                             valor_evento,
                                             qntd_parcelas_permitida_evento,
                                             part_min_evento,
-                                            ativo_evento
+                                            ativo_evento, 
+                                            vagas, 
+                                            vagas_restantes
                                           ) VALUES (
                                           :nome_evento,
                                           :sigla_evento,
@@ -56,7 +58,9 @@
                                           :valor_evento,
                                           :qntd_parcelas_permitidas,
                                           :part_min_evento,
-                                          :ativo_evento);';
+                                          :ativo_evento,
+                                          :vagas,
+                                          :vagas_restantes);';
 
             $statement = $Conexao->prepare($SQL);
 
@@ -74,6 +78,8 @@
             $statement->bindValue(':qntd_parcelas_permitidas', $Objeto->getQntdParcelasPermitidas(), PDO::PARAM_INT);
             $statement->bindValue(':part_min_evento', $Objeto->getPartMinEvento(), PDO::PARAM_INT);
             $statement->bindValue(':ativo_evento', 's', PDO::PARAM_STR);
+            $statement->bindValue(':vagas', $Objeto->getVagas(), PDO::PARAM_INT);
+            $statement->bindValue(':vagas_restantes', $Objeto->getVagasRestantes(), PDO::PARAM_INT);
 
             // Executa a query
             $statement->execute();

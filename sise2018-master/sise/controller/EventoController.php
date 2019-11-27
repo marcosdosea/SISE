@@ -214,10 +214,12 @@ switch ($action) {
             $dataIniEven = $_POST['dataInicio'] . " " . $horaAtualServidor;
             $dataFimEven = $_POST['dataFim'] . " " . $horaAtualServidor;
 
+            $vagas = $_POST['qtdVagas'];
+
             $novoEvento = new Evento(null, $_POST['nome'], $_POST['sigla'], $_POST['descricao'],
                 $dataIniInsc, $dataFimInsc, $dataIniEven, $dataFimEven,
                 null, null, null, $_POST['valor'], $_POST['numParcelas'],
-                $_POST['partMin'], 's');
+                $_POST['partMin'], 's', $vagas, $vagas);
 
             // Retorna o ID do ultimo evento inserido para ser usado na montagem do Objeto AdminEvento
             $gerenciadoraEvento->adicionar($novoEvento,$_SESSION['codigo']);

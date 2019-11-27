@@ -11,6 +11,10 @@
      * Autor: Gabriel Santana
      * Date: 24/07/2017
      * Message: Variável $PartMinEvento adicionada
+     * === Atualização 3 ===
+     * Autor: Igor Terriaga
+     * Date: 26/11/2019
+     * Message: Campos Vagas e VagasRestantes adicionados
      */
     class Evento{
 
@@ -29,10 +33,12 @@
 		private $valorEvento;
 		private $qntdParcelasPermitidas;
 		private $partMinEvento;
-		private $ativoEvento;
+        private $ativoEvento;
+        private $vagas;
+        private $vagasRestantes;
 
         // Método Construtor
-        function __construct($idEvento = null, $nomeEvento = null, $siglaEvento = null, $descricaoEvento = null, $inicioIscricoesEvento = null, $fimInscricoesEvento = null, $dataInicioEvento = null, $dataFimEvento = null, $idEndereco = null, $idEventoPai = null,$urlImagem = null, $valorEvento = null, $qntdParcelasPermitidas = null, $partMinEvento = null, $ativoEvento = null){
+        function __construct($idEvento = null, $nomeEvento = null, $siglaEvento = null, $descricaoEvento = null, $inicioIscricoesEvento = null, $fimInscricoesEvento = null, $dataInicioEvento = null, $dataFimEvento = null, $idEndereco = null, $idEventoPai = null,$urlImagem = null, $valorEvento = null, $qntdParcelasPermitidas = null, $partMinEvento = null, $ativoEvento = null, $vagas = null, $vagasRestantes = null){
             $this->idEvento = $idEvento;
             $this->nomeEvento = $nomeEvento;
 			$this->siglaEvento = $siglaEvento;
@@ -47,7 +53,9 @@
 			$this->valorEvento = $valorEvento;
 			$this->qntdParcelasPermitidas = $qntdParcelasPermitidas;
 			$this->partMinEvento = $partMinEvento;
-			$this->ativoEvento = $ativoEvento;
+            $this->ativoEvento = $ativoEvento;
+            $this->vagas = $vagas;
+            $this->vagasRestantes = $vagasRestantes;
         }
 
         // Métodos Getters
@@ -112,7 +120,13 @@
             return $this->ativoEvento;
         }
 
+        public function getVagas(){
+            return $this->vagas;
+        }
 
+        public function getVagasRestantes(){
+            return $this->vagasRestantes;
+        }
 
         // Métodos Setters
         function setIdEvento($idEvento){
@@ -173,6 +187,14 @@
 
         public function setAtivoEvento($ativoEvento){
             $this->ativoEvento = $ativoEvento;
+        }
+
+        public function setVagas($vagas){
+            $this->vagas = $vagas;
+        }
+
+        public function setVagasRestantes($vagasRestantes){
+            $this->vagasRestantes = $vagasRestantes;
         }
     }
 ?>

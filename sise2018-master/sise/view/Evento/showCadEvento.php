@@ -202,6 +202,15 @@
                                                 <input type="text" name="partMin" class="form-control" required>
                                             </div>
                                         </div>
+                                        
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label for="">Quantidade de Vagas *</label>
+                                            <div class="input-group">
+                                                <input type="number" name="qtdVagas" class="form-control" required>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

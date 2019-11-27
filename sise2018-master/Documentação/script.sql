@@ -17,13 +17,13 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 -- -----------------------------------------------------
 -- Schema itatechj_sise_sandbox
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `itatechj_sise_sandbox` DEFAULT CHARACTER SET utf8 ;
-USE `itatechj_sise_sandbox` ;
+CREATE SCHEMA IF NOT EXISTS `siselocalhost` DEFAULT CHARACTER SET utf8 ;
+USE `siselocalhost` ;
 
 -- -----------------------------------------------------
--- Table `itatechj_sise_sandbox`.`tb_estado`
+-- Table `tb_estado`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `itatechj_sise_sandbox`.`tb_estado` (
+CREATE TABLE IF NOT EXISTS `tb_estado` (
   `id_estado` INT(11) NOT NULL,
   `sigla_estado` VARCHAR(2) CHARACTER SET 'utf8' COLLATE 'utf8_lithuanian_ci' NOT NULL,
   `nome_estado` VARCHAR(45) CHARACTER SET 'utf8' COLLATE 'utf8_lithuanian_ci' NOT NULL,
@@ -34,9 +34,9 @@ COLLATE = utf8_lithuanian_ci;
 
 
 -- -----------------------------------------------------
--- Table `itatechj_sise_sandbox`.`tb_cidade`
+-- Table `tb_cidade`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `itatechj_sise_sandbox`.`tb_cidade` (
+CREATE TABLE IF NOT EXISTS `tb_cidade` (
   `id_cidade` INT(11) NOT NULL AUTO_INCREMENT,
   `nome_cidade` VARCHAR(45) CHARACTER SET 'utf8' COLLATE 'utf8_lithuanian_ci' NOT NULL,
   `id_estado` INT(11) NOT NULL,
@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS `itatechj_sise_sandbox`.`tb_cidade` (
   INDEX `fk_tb_cidade_tb_estado1_idx1` (`tb_estado_id_estado` ASC),
   CONSTRAINT `fk_tb_cidade_tb_estado1`
     FOREIGN KEY (`tb_estado_id_estado`)
-    REFERENCES `itatechj_sise_sandbox`.`tb_estado` (`id_estado`)
+    REFERENCES `tb_estado` (`id_estado`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -56,9 +56,9 @@ COLLATE = utf8_lithuanian_ci;
 
 
 -- -----------------------------------------------------
--- Table `itatechj_sise_sandbox`.`tb_endereco`
+-- Table `tb_endereco`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `itatechj_sise_sandbox`.`tb_endereco` (
+CREATE TABLE IF NOT EXISTS `tb_endereco` (
   `id_endereco` INT(11) NOT NULL AUTO_INCREMENT,
   `logradouro_endereco` VARCHAR(45) CHARACTER SET 'utf8' COLLATE 'utf8_lithuanian_ci' NULL DEFAULT NULL,
   `numero_endereco` INT(11) NULL DEFAULT NULL,
@@ -69,7 +69,7 @@ CREATE TABLE IF NOT EXISTS `itatechj_sise_sandbox`.`tb_endereco` (
   INDEX `fk_tb_endereco_tb_cidade1_idx` (`id_cidade` ASC),
   CONSTRAINT `fk_tb_endereco_tb_cidade1`
     FOREIGN KEY (`id_cidade`)
-    REFERENCES `itatechj_sise_sandbox`.`tb_cidade` (`id_cidade`)
+    REFERENCES `tb_cidade` (`id_cidade`)
     ON DELETE SET NULL
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -79,9 +79,9 @@ COLLATE = utf8_lithuanian_ci;
 
 
 -- -----------------------------------------------------
--- Table `itatechj_sise_sandbox`.`tb_evento`
+-- Table `tb_evento`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `itatechj_sise_sandbox`.`tb_evento` (
+CREATE TABLE IF NOT EXISTS `tb_evento` (
   `id_evento` INT(11) NOT NULL AUTO_INCREMENT,
   `nome_evento` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_lithuanian_ci' NOT NULL,
   `sigla_evento` VARCHAR(45) CHARACTER SET 'utf8' COLLATE 'utf8_lithuanian_ci' NULL DEFAULT NULL,
@@ -97,12 +97,14 @@ CREATE TABLE IF NOT EXISTS `itatechj_sise_sandbox`.`tb_evento` (
   `qntd_parcelas_permitida_evento` INT(11) NULL DEFAULT NULL,
   `part_min_evento` INT(11) NULL DEFAULT NULL,
   `ativo_evento` ENUM('s', 'n') CHARACTER SET 'utf8' COLLATE 'utf8_lithuanian_ci' NOT NULL,
+  `vagas` INT(11) NOT NULL,
+  `vagas_restantes` INT(11) NOT NULL,
   PRIMARY KEY (`id_evento`),
   INDEX `fk_tb_evento_tb_endereco1_idx` (`id_endereco` ASC),
   INDEX `fk_tb_evento_tb_evento1_idx` (`id_evento_pai` ASC),
   CONSTRAINT `fk_tb_evento_tb_endereco1`
     FOREIGN KEY (`id_endereco`)
-    REFERENCES `itatechj_sise_sandbox`.`tb_endereco` (`id_endereco`)
+    REFERENCES `tb_endereco` (`id_endereco`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -112,9 +114,9 @@ COLLATE = utf8_lithuanian_ci;
 
 
 -- -----------------------------------------------------
--- Table `itatechj_sise_sandbox`.`tb_usuario`
+-- Table `tb_usuario`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `itatechj_sise_sandbox`.`tb_usuario` (
+CREATE TABLE IF NOT EXISTS `tb_usuario` (
   `id_usuario` INT(11) NOT NULL AUTO_INCREMENT,
   `nome_usuario` VARCHAR(60) CHARACTER SET 'utf8' COLLATE 'utf8_lithuanian_ci' NOT NULL,
   `cpf_usuario` VARCHAR(11) CHARACTER SET 'utf8' COLLATE 'utf8_lithuanian_ci' NOT NULL,
@@ -130,9 +132,9 @@ COLLATE = utf8_lithuanian_ci;
 
 
 -- -----------------------------------------------------
--- Table `itatechj_sise_sandbox`.`tb_admin_evento`
+-- Table `tb_admin_evento`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `itatechj_sise_sandbox`.`tb_admin_evento` (
+CREATE TABLE IF NOT EXISTS `tb_admin_evento` (
   `id_usuario` INT(11) NOT NULL,
   `id_evento` INT(11) NOT NULL,
   PRIMARY KEY (`id_usuario`, `id_evento`),
@@ -140,12 +142,12 @@ CREATE TABLE IF NOT EXISTS `itatechj_sise_sandbox`.`tb_admin_evento` (
   INDEX `fk_tb_admin_evento_tb_evento1_idx` (`id_evento` ASC),
   CONSTRAINT `fk_tb_admin_evento_tb_evento1`
     FOREIGN KEY (`id_evento`)
-    REFERENCES `itatechj_sise_sandbox`.`tb_evento` (`id_evento`)
+    REFERENCES `tb_evento` (`id_evento`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_tb_usuario_has_tb_evento_tb_usuario1`
     FOREIGN KEY (`id_usuario`)
-    REFERENCES `itatechj_sise_sandbox`.`tb_usuario` (`id_usuario`)
+    REFERENCES `tb_usuario` (`id_usuario`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -154,9 +156,9 @@ COLLATE = utf8_lithuanian_ci;
 
 
 -- -----------------------------------------------------
--- Table `itatechj_sise_sandbox`.`tb_certificado`
+-- Table `tb_certificado`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `itatechj_sise_sandbox`.`tb_certificado` (
+CREATE TABLE IF NOT EXISTS `tb_certificado` (
   `id_certificado` INT(11) NOT NULL AUTO_INCREMENT,
   `ch_certificado` INT(11) NOT NULL,
   `status_certificado` TINYINT(1) NOT NULL,
@@ -168,7 +170,7 @@ CREATE TABLE IF NOT EXISTS `itatechj_sise_sandbox`.`tb_certificado` (
   INDEX `fk_tb_certificado_tb_evento1_idx` (`id_evento` ASC),
   CONSTRAINT `fk_tb_certificado_tb_evento1`
     FOREIGN KEY (`id_evento`)
-    REFERENCES `itatechj_sise_sandbox`.`tb_evento` (`id_evento`)
+    REFERENCES `tb_evento` (`id_evento`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -178,9 +180,9 @@ COLLATE = utf8_lithuanian_ci;
 
 
 -- -----------------------------------------------------
--- Table `itatechj_sise_sandbox`.`tb_frequencia`
+-- Table `tb_frequencia`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `itatechj_sise_sandbox`.`tb_frequencia` (
+CREATE TABLE IF NOT EXISTS `tb_frequencia` (
   `data_hora_frequencia` DATETIME NULL DEFAULT NULL,
   `id_evento_frequencia` INT(11) NOT NULL,
   `id_usuario_frequencia` INT(11) NOT NULL,
@@ -188,12 +190,12 @@ CREATE TABLE IF NOT EXISTS `itatechj_sise_sandbox`.`tb_frequencia` (
   INDEX `fk_tb_frequencia_tb_evento1_idx` (`id_evento_frequencia` ASC),
   CONSTRAINT `fk_tb_frequencia_tb_usuario1`
     FOREIGN KEY (`id_usuario_frequencia`)
-    REFERENCES `itatechj_sise_sandbox`.`tb_usuario` (`id_usuario`)
+    REFERENCES `tb_usuario` (`id_usuario`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_tb_frequencia_tb_evento1`
     FOREIGN KEY (`id_evento_frequencia`)
-    REFERENCES `itatechj_sise_sandbox`.`tb_evento` (`id_evento`)
+    REFERENCES `tb_evento` (`id_evento`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -202,9 +204,9 @@ COLLATE = utf8_lithuanian_ci;
 
 
 -- -----------------------------------------------------
--- Table `itatechj_sise_sandbox`.`tb_info_frequencia`
+-- Table `tb_info_frequencia`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `itatechj_sise_sandbox`.`tb_info_frequencia` (
+CREATE TABLE IF NOT EXISTS `tb_info_frequencia` (
   `id_info_frequencia` INT(11) NOT NULL AUTO_INCREMENT,
   `dia_info_frequencia` DATE NOT NULL,
   `quant_info_frequencia` INT(11) NOT NULL,
@@ -213,7 +215,7 @@ CREATE TABLE IF NOT EXISTS `itatechj_sise_sandbox`.`tb_info_frequencia` (
   INDEX `fk_tb_info_frequencia_tb_evento1_idx` (`tb_evento_id_evento` ASC),
   CONSTRAINT `fk_tb_info_frequencia_tb_evento1`
     FOREIGN KEY (`tb_evento_id_evento`)
-    REFERENCES `itatechj_sise_sandbox`.`tb_evento` (`id_evento`)
+    REFERENCES `tb_evento` (`id_evento`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -223,9 +225,9 @@ COLLATE = utf8_lithuanian_ci;
 
 
 -- -----------------------------------------------------
--- Table `itatechj_sise_sandbox`.`tb_inscricao_evento`
+-- Table `tb_inscricao_evento`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `itatechj_sise_sandbox`.`tb_inscricao_evento` (
+CREATE TABLE IF NOT EXISTS `tb_inscricao_evento` (
   `tb_usuario_id_usuario` INT(11) NOT NULL,
   `tb_evento_id_evento` INT(11) NOT NULL,
   `data_hora_inscricao_evento` DATETIME NULL DEFAULT NULL,
@@ -233,7 +235,7 @@ CREATE TABLE IF NOT EXISTS `itatechj_sise_sandbox`.`tb_inscricao_evento` (
   INDEX `fk_tb_usuario_has_tb_evento_tb_usuario_idx` (`tb_usuario_id_usuario` ASC),
   CONSTRAINT `fk_tb_usuario_has_tb_evento_tb_usuario`
     FOREIGN KEY (`tb_usuario_id_usuario`)
-    REFERENCES `itatechj_sise_sandbox`.`tb_usuario` (`id_usuario`)
+    REFERENCES `tb_usuario` (`id_usuario`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -242,9 +244,9 @@ COLLATE = utf8_lithuanian_ci;
 
 
 -- -----------------------------------------------------
--- Table `itatechj_sise_sandbox`.`tb_pagamento`
+-- Table `tb_pagamento`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `itatechj_sise_sandbox`.`tb_pagamento` (
+CREATE TABLE IF NOT EXISTS `tb_pagamento` (
   `id_pagamento` INT(11) NOT NULL AUTO_INCREMENT,
   `valor_pagamento` DOUBLE NULL DEFAULT NULL,
   `quantidade_parcelas_pagamento` INT(11) NULL DEFAULT NULL,
@@ -256,7 +258,7 @@ CREATE TABLE IF NOT EXISTS `itatechj_sise_sandbox`.`tb_pagamento` (
   INDEX `fk_tb_pagamento_tb_inscricao_evento1_idx` (`id_usuario` ASC, `id_evento` ASC),
   CONSTRAINT `fk_tb_pagamento_tb_inscricao_evento1`
     FOREIGN KEY (`id_usuario` , `id_evento`)
-    REFERENCES `itatechj_sise_sandbox`.`tb_inscricao_evento` (`tb_usuario_id_usuario` , `tb_evento_id_evento`)
+    REFERENCES `tb_inscricao_evento` (`tb_usuario_id_usuario` , `tb_evento_id_evento`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -266,9 +268,9 @@ COLLATE = utf8_lithuanian_ci;
 
 
 -- -----------------------------------------------------
--- Table `itatechj_sise_sandbox`.`tb_parcela`
+-- Table `tb_parcela`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `itatechj_sise_sandbox`.`tb_parcela` (
+CREATE TABLE IF NOT EXISTS `tb_parcela` (
   `id_parcela` INT(11) NOT NULL AUTO_INCREMENT,
   `valor_parcela` VARCHAR(45) CHARACTER SET 'utf8' COLLATE 'utf8_lithuanian_ci' NULL DEFAULT NULL,
   `vencimento_parcela` DOUBLE NULL DEFAULT NULL,
@@ -280,7 +282,7 @@ CREATE TABLE IF NOT EXISTS `itatechj_sise_sandbox`.`tb_parcela` (
   INDEX `fk_tb_parcela_tb_pagamento1_idx` (`id_pagamento` ASC),
   CONSTRAINT `fk_tb_parcela_tb_pagamento1`
     FOREIGN KEY (`id_pagamento`)
-    REFERENCES `itatechj_sise_sandbox`.`tb_pagamento` (`id_pagamento`)
+    REFERENCES `tb_pagamento` (`id_pagamento`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -290,9 +292,9 @@ COLLATE = utf8_lithuanian_ci;
 
 
 -- -----------------------------------------------------
--- Table `itatechj_sise_sandbox`.`tb_recuperar_senha`
+-- Table `tb_recuperar_senha`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `itatechj_sise_sandbox`.`tb_recuperar_senha` (
+CREATE TABLE IF NOT EXISTS `tb_recuperar_senha` (
   `id_recuperar_senha` INT(11) NOT NULL AUTO_INCREMENT,
   `token` VARCHAR(100) CHARACTER SET 'utf8' COLLATE 'utf8_lithuanian_ci' NOT NULL,
   `data_requisicao` DATETIME NOT NULL,
@@ -303,7 +305,7 @@ CREATE TABLE IF NOT EXISTS `itatechj_sise_sandbox`.`tb_recuperar_senha` (
   INDEX `fk_tb_recuperar_senha_tb_usuario1_idx` (`id_usuario` ASC),
   CONSTRAINT `fk_tb_recuperar_senha_tb_usuario1`
     FOREIGN KEY (`id_usuario`)
-    REFERENCES `itatechj_sise_sandbox`.`tb_usuario` (`id_usuario`)
+    REFERENCES `tb_usuario` (`id_usuario`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
