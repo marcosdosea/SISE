@@ -109,18 +109,13 @@
                                             <label for="">Estado*</label>
                                             <select name="estados" id="estado" class="form-control">
                                                 <option id="" value="selecionar">Selecione um Estado</option>
-<!--                                                --><?php
-//                                                $persistencia = new GerenciadorEstado();
-//
-//                                                $estados = $persistencia->obterTodos();
-//                                               // var_dump($estados);
-//                                                foreach ($estados as $estado) {
-//                                                    echo "<option value='" . $estado->getIdEstado() . "'  id='" . $estado->getIdEstado() . "'>" . $estado->getNomeEstado() . " / " . $estado->getSiglaEstado() . "</option>";
-//
-//                                                }
-//
-//                                                ?>
+                                                <?php
+                                                 foreach ($data['Estados'] as $estado) {
+                                                    echo "<option value='" . $estado->getIdEstado() . "'  id='" . $estado->getIdEstado() . "'>" . $estado->getNomeEstado() . " / " . $estado->getSiglaEstado() . "</option>";
 
+                                                }
+
+                                             ?>
                                             </select>
                                         </div>
                                     </div>
@@ -130,16 +125,12 @@
                                             <label for="">Cidade*</label>
                                             <select name="cidades" id="cidade" class="form-control">
                                                 <option data-cidade="selecionar" id="">Selecione o Estado antes</option>
-<!--                                                --><?php
-//                                                $persistenciaC = new GerenciadorCidade();
-//
-//                                                $cidades = $persistenciaC->obterTodos();
-//                                                var_dump($cidades);
-//                                                foreach ($cidades as $cidade) {
-//                                                    echo "<option data-cidade='" . $cidade->getIdEstado() . "' id='" . $cidade->getIdCidade() . "' value='" . $cidade->getIdCidade() . "'>" . $cidade->getNomeCidade() . "</option>";
-//
-//                                                }
-//                                                ?>
+                                                <?php
+                                                foreach ($data['Cidades'] as $cidade) {
+                                                    echo "<option data-cidade='" . $cidade->getIdEstado() . "' id='" . $cidade->getIdCidade() . "' value='" . $cidade->getIdCidade() . "'>" . $cidade->getNomeCidade() . "</option>";
+
+                                                }
+                                                ?>
 
                                             </select>
                                         </div>
@@ -184,7 +175,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-2">
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="">Numero de parcelas</label>
                                             <select name="numParcelas" class="form-control">
@@ -196,12 +187,12 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-md-2">
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="">Participação Minima*</label>
                                             <div class="input-group">
-                                                <span class="input-group-addon">%</span>
-                                                <input type="text" name="partMin" class="form-control" >
+                                                <span class="input-group-addon ">%</span>
+                                                <input type="text" name="partMin" class="form-control " placeholder='De 0% até 100%' >
                                             </div>
                                         </div>
                                     </div>

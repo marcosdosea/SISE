@@ -189,13 +189,22 @@ switch ($action) {
         break;
     //Cadastro de evento, permitido apenas para quem tem o controle administrativo
     case 'showCadastrar':
-
         validaTipoUsuario(ADMIN);
+
+        $gerenciadoraEstados = new GerenciadorEstado();
+        $gerenciadoraCidades = new GerenciadorCidade();
+
+        $data['Estados'] = $gerenciadoraEstados->obterTodos();  
+        $data['Cidades']  = $gerenciadoraCidades->obterTodos();
+      
         require_once '../view/InicioDaPagina/inicioDaPagina.php';
         require_once '../controller/MenuController.php';
         require_once '../view/Evento/showCadEvento.php';
         require_once '../view/Footer/footer.php';
         require_once '../view/FimDaPagina/fimDaPagina.php';
+     
+       
+
         break;
 
     case 'cadastrar':

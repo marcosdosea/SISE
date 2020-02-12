@@ -4,9 +4,10 @@
  * Date: 10/03/2017
  */
 ?>
-<html>
+<!DOCTYPE html>
+<html lang='pt-br'>
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <title>SISE | <?php echo $pagina ?></title>
     <!-- favicon -->
     <link rel="icon" type="image/ico" href="imagens/sise/favicon.ico" />

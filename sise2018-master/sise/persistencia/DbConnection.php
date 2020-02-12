@@ -4,6 +4,7 @@
      * Date: 16/02/2017
      * Time: 20:08
      */
+
 	class DbConnection{
 		private static $ParametrosConexao;
 		private static $Conexao;
@@ -14,7 +15,7 @@
 			self::$StringConexao = 'mysql:dbname=' . self::$ParametrosConexao['Banco'] . ';host=' . self::$ParametrosConexao['Host'];
 			if(!isset(self::$Conexao)){
 				try{
-					self::$Conexao = new PDO(self::$StringConexao, self::$ParametrosConexao['Usuario'], self::$ParametrosConexao['Senha']);
+					self::$Conexao = new PDO(self::$StringConexao, self::$ParametrosConexao['Usuario'], self::$ParametrosConexao['Senha'], array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
                     //self::$Conexao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
 				}catch(PDOException $e){
 					echo 'Conexão Falhou: ' . $e->getMessage();
