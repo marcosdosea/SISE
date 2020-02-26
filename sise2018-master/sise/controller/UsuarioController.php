@@ -40,18 +40,26 @@
 
     // Permite cadastrar um usuario no sistema.
         case 'cad':
-            if (isset($_POST['nome']) && ($_POST['senha1'] == $_POST['senha2'])) {
-                $gerenciadoraUsuario = new GerenciadorUsuario();
+            if (empty($_POST['nome']) or empty($_POST['cpf']) or empty($_POST['email'])){
+                echo "<script>
+                    alert('Todos os campos são obrigatórios!'); 
+                    history.go(-1);
+                </script>";
+                exit;
+            } else {
+                if (isset($_POST['nome']) && ($_POST['senha1'] == $_POST['senha2'])) {
+                    $gerenciadoraUsuario = new GerenciadorUsuario();
 
-                $user = $gerenciadoraUsuario->obterPeloCPF($_POST['cpf']);
-                if ($user != null) {
-                    header('Location: login?mensagem=existe');
-                } else {
-                    //$novo = new Usuario(null,$_POST['nome'], $_POST['cpf'], null, null, null, $_POST['email'], null, null, null , $_POST['sexo'] , criptografaSenha($_POST['senha1']) , null );
-                    $novo = new Usuario(null, $_POST['nome'], $_POST['cpf'], $_POST['email'], criptografaSenha($_POST['senha1']),null, null);
+                    $user = $gerenciadoraUsuario->obterPeloCPF($_POST['cpf']);
+                    if ($user != null) {
+                        header('Location: login?mensagem=existe');
+                    } else {
+                        //$novo = new Usuario(null,$_POST['nome'], $_POST['cpf'], null, null, null, $_POST['email'], null, null, null , $_POST['sexo'] , criptografaSenha($_POST['senha1']) , null );
+                        $novo = new Usuario(null, $_POST['nome'], $_POST['cpf'], $_POST['email'], criptografaSenha($_POST['senha1']),null, null);
 
-                    $gerenciadoraUsuario->adicionar($novo);
-                    header('Location: login?mensagem=sucess');
+                        $gerenciadoraUsuario->adicionar($novo);
+                        header('Location: login?mensagem=sucess');
+                    }
                 }
             }
         break;

@@ -102,7 +102,7 @@
                                         <input type="text" name="cpf" id="cpf" class="form-control" placeholder="CPF" required>
                                     </div>
                                     <div class="form-group has-feedback">
-                                        <input type="email" name="email" class="form-control" placeholder="Email" required>
+                                        <input type="email" name="email" id="email" class="form-control" placeholder="Email" required>
                                         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                                     </div>
                                     <div class="form-group has-feedback">
