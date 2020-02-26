@@ -1,0 +1,24 @@
+<IfModule mod_rewrite.c>
+		RewriteEngine On
+		RewriteCond %{REQUEST_FILENAME} !-f
+		RewriteCond %{REQUEST_FILENAME} !-d
+		#RewriteRule ^login/?$ Web/Controller/Login.controller.php [NC]
+		#RewriteRule ^usuario/?$ Web/Controller/Usuario.controller.php [NC]
+		#RewriteRule ^home/?$ Web/Controller/Home.controller.php [NC]
+		#RewriteRule ^tipo-unidade/?$ Web/Controller/TipoUnidade.controller.php [NC]
+		#RewriteRule ^tipo-hardware/?$ Web/Controller/TipoHardware.controller.php [NC]
+		#RewriteRule ^tipo-ativo/?$ Web/Controller/TipoAtivo.controller.php [NC]
+		#RewriteRule ^unidade/?$ Web/Controller/Unidade.controller.php [NC]
+        #RewriteRule ^subcategoria/?$ Web/Controller/SubCategoria.controller.php [NC]
+        #RewriteRule ^tipo-atr-hardware/?$ Web/Controller/TipoAtributoHardware.controller.php [NC]
+        #RewriteRule ^tipo-atr-software/?$ Web/Controller/TipoAtributoSoftware.controller.php [NC]
+		#RewriteRule ^licenca/?$ Web/Controller/Licenca.controller.php [NC]
+        #RewriteRule ^valor-tipo-atr-hardware/?$ Web/Controller/ValorTipoAtributoHardware.controller.php [NC]
+        #RewriteRule ^sipac/?$ Web/Controller/InformacaoSipac.controller.php [NC]
+        #RewriteRule ^pacote-software/?$ Web/Controller/PacoteSoftware.controller.php [NC]
+        #RewriteRule ^ativo/?$ Web/Controller/Ativo.controller.php [NC]
+        #RewriteRule ^situacao-ativo/?$ Web/Controller/SituacaoAtivo.controller.php [NC]
+        #RewriteRule ^hardware/?$ Web/Controller/Hardware.controller.php [NC]
+        #RewriteRule ^software/?$ Web/Controller/Software.controller.php [NC]
+        #RewriteRule ^local-ativo/?$ Web/Controller/LocalAtivo.controller.php [NC]
+</IfModule>

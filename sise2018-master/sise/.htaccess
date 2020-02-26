@@ -1,0 +1,17 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule ^login/?$ controller/LoginController.php [NC]
+	RewriteRule ^usuario/?$ controller/UsuarioController.php [NC]
+	RewriteRule ^home/?$ controller/HomeController.php [NC]
+	RewriteRule ^detalhe/?$ controller/EventoController.php [NC]
+	RewriteRule ^evento/?$ controller/EventoController.php [NC]
+	RewriteRule ^inscricaoEvento/?$ controller/InscricaoEventoController.php [NC]
+    RewriteRule ^certificado/?$ controller/CertificadoController.php [NC]
+    RewriteRule ^relatorio/?$ controller/RelatorioController.php [NC]
+    RewriteRule ^recupSenha/?$ controller/RecuperarSenhaController.php [NC]
+
+	RewriteRule ^adm/?$ adm/controller/AdmController.php [NC]
+	RewriteRule ^adm/gerenciar-inscritos/?$ adm/controller/InscritosNoEventoController.php [NC]
+</IfModule>
